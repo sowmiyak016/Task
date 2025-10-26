@@ -206,9 +206,12 @@ export const TaskTable: React.FC<TaskTableProps> = ({
               </TableCell>
               <TableCell>
                 <Typography variant="body2" color="textSecondary">
-                  {formatDate(task.updatedAt) ?? "-"}
+                  {task.updatedAt && task.updatedAt !== task.createdAt
+                    ? formatDate(task.updatedAt)
+                    : "-"}
                 </Typography>
               </TableCell>
+
               <TableCell align="center">
                 <Tooltip title={'Edit'}>
                   <IconButton
